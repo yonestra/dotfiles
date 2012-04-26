@@ -1,0 +1,4 @@
+/etc/apache2/httpd.conf
+/etc/apache2/#httpd.conf#
+/Library/WebServer/Documents/hello.cgi
+/Library/WebServer/Documents/#hello.cgi#
