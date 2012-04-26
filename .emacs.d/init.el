@@ -169,7 +169,7 @@
 ;; (install-elisp "http://www.emacswiki.org/emacs/download/auto-install.el")
 (when (require 'auto-install nil t)
   ; Emacs Lisp をインストールするディレクトリの指定
-  (setq auto-install-directory "~/.emacs.d/elisp/")
+  (setq auto-install-directory "~/.emacs.d/elisp/auto-install")
   ; EmacsWiki に登録されている elisp の名前を取得
   ;(auto-install-update-emacswiki-package-name t)
   ; プロキシの設定
@@ -181,73 +181,73 @@
 
 
 
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ;; anything 関係
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; anything 関係
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; ;; anything
-;; ;; (auto-install-batch "anything")
-;; ;; (when (require 'anything nil t)
-;;   (setq
-;;    ;; 候補を表示するまでの時間。デフォルトは0.5
-;;    anything-idle-delay 0.3
-;;    ;; タイプして再描写するまでの時間。デフォルトは0.1
-;;    anything-input-idle-delay 0.2
-;;    ;; 候補の最大表示数。デフォルトは50
-;;    anything-candidate-number-limit 100
-;;    ;; 候補が多いときに体感速度を早くする
-;;    anything-quick-update t
-;;    ;; 候補選択ショートカットをアルファベットに
-;;    anything-enable-shortcuts 'alphabet)
+;; anything
+;; (auto-install-batch "anything")
+;; (when (require 'anything nil t)
+  (setq
+   ;; 候補を表示するまでの時間。デフォルトは0.5
+   anything-idle-delay 0.3
+   ;; タイプして再描写するまでの時間。デフォルトは0.1
+   anything-input-idle-delay 0.2
+   ;; 候補の最大表示数。デフォルトは50
+   anything-candidate-number-limit 100
+   ;; 候補が多いときに体感速度を早くする
+   anything-quick-update t
+   ;; 候補選択ショートカットをアルファベットに
+   anything-enable-shortcuts 'alphabet)
 
-;;   (when (require 'anything-config nil t)
-;;     ;; root権限でアクションを実行するときのコマンド
-;;     ;; デフォルトは"su"
-;;     (setq anything-su-or-sudo "sudo"))
+  (when (require 'anything-config nil t)
+    ;; root権限でアクションを実行するときのコマンド
+    ;; デフォルトは"su"
+    (setq anything-su-or-sudo "sudo"))
 
-;;   (require 'anything-match-plugin nil t)
-;;   (and (equal current-language-environment "Japanese")
-;;        (executable-find "cmigemo")
-;;        (require 'anything-migemo nil t))
-;;   (when (require 'anything-complete nil t)
-;;     ;; M-xによる補完をAnythingで行なう
-;;     ;; (anything-read-string-mode 1)
-;;     ;; lispシンボルの補完候補の再検索時間
-;;     (anything-lisp-complete-symbol-set-timer 150))
+  (require 'anything-match-plugin nil t)
+  (and (equal current-language-environment "Japanese")
+       (executable-find "cmigemo")
+       (require 'anything-migemo nil t))
+  (when (require 'anything-complete nil t)
+    ;; M-xによる補完をAnythingで行なう
+    ;; (anything-read-string-mode 1)
+    ;; lispシンボルの補完候補の再検索時間
+    (anything-lisp-complete-symbol-set-timer 150))
 
-;;   (require 'anything-show-completion nil t)
+  (require 'anything-show-completion nil t)
 
-;;   (when (require 'auto-install nil t)
-;;     (require 'anything-auto-install nil t))
+  (when (require 'auto-install nil t)
+    (require 'anything-auto-install nil t))
 
-;;   (when (require 'descbinds-anything nil t)
-;;     ;; describe-bindingsをAnythingに置き換える
-;;     (descbinds-anything-install))
+  (when (require 'descbinds-anything nil t)
+    ;; describe-bindingsをAnythingに置き換える
+    (descbinds-anything-install))
 
-;;   (require 'anything-grep nil t)
+  (require 'anything-grep nil t)
 
-;;   ;; Command+f で anything
-;;   (define-key global-map (kbd "s-f") 'anything)
-;;   ;; Command+y で anything-show-kill-ring
-;;   (define-key global-map (kbd "s-y") 'anything-show-kill-ring)
+  ;; Command+f で anything
+  (define-key global-map (kbd "s-f") 'anything)
+  ;; Command+y で anything-show-kill-ring
+  (define-key global-map (kbd "s-y") 'anything-show-kill-ring)
 
-;;   ;; manやinfoを調べるコマンドを作成してみる
-;;   ;; anything-for-document 用のソースを定義
-;;   (setq anything-for-document-sources
-;;       (list anything-c-source-man-pages
-;;             anything-c-source-info-cl
-;;             anything-c-source-info-pages
-;;             anything-c-source-info-elisp
-;;             anything-c-source-apropos-emacs-commands
-;;             anything-c-source-apropos-emacs-functions
-;;             anything-c-source-apropos-emacs-variables))
-;;   ;; anything-for-document コマンドを作成
-;;   (defun anything-for-document ()
-;;     "Preconfigured `anything' for anything-for-document."
-;;     (interactive)
-;;     (anything anything-for-document-sources (thing-at-point 'symbol) nil nil nil "*anything for document*"))
-;;   ;; Command+d に anything-for-documentを割り当て
-;;   (define-key global-map (kbd "s-d") 'anything-for-document)
+  ;; manやinfoを調べるコマンドを作成してみる
+  ;; anything-for-document 用のソースを定義
+  (setq anything-for-document-sources
+      (list anything-c-source-man-pages
+            anything-c-source-info-cl
+            anything-c-source-info-pages
+            anything-c-source-info-elisp
+            anything-c-source-apropos-emacs-commands
+            anything-c-source-apropos-emacs-functions
+            anything-c-source-apropos-emacs-variables))
+  ;; anything-for-document コマンドを作成
+  (defun anything-for-document ()
+    "Preconfigured `anything' for anything-for-document."
+    (interactive)
+    (anything anything-for-document-sources (thing-at-point 'symbol) nil nil nil "*anything for document*"))
+  ;; Command+d に anything-for-documentを割り当て
+  (define-key global-map (kbd "s-d") 'anything-for-document)
 
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -392,6 +392,31 @@
 ;; (setq locale-coding-system 'utf-8-hfs)
 ;; (setq system-uses-terminfo nil)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Web開発 関係
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; ;; HTML/JS/PHPなどのコードを同時に補正
+;; (load "nxhtml/autostart.el")
+
+;; mmm-mode で JS と HTML
+;; autoload
+(autoload 'javascript-mode "javascript" "JavaScript mode" t)
+
+;; mmm-mode
+(require 'mmm-mode)
+(setq mmm-global-mode 'maybe)
+(setq mmm-submode-decoration-level 2)
+(set-face-background 'mmm-default-submode-face "gray15")
+
+;; js in html
+(mmm-add-classes
+ '((js-in-html
+    :submode javascript-mode
+    :front "<script[^>]*>\n<!--\n"
+    :back  "// ?-->\n</script>")))
+(mmm-add-mode-ext-class nil "\\.s?html?\\(\\..+\\)?$" 'js-in-html)
 
 
 
