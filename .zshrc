@@ -21,7 +21,7 @@ alias ll="ls -la"
 
 alias gs="git status"
 alias add="git add"
-alias pull"git pull"
+alias pull="git pull"
 alias push="git push"
 alias cm="git commit"
 
