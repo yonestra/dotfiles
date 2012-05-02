@@ -25,6 +25,7 @@ alias pull="git pull"
 alias push="git push"
 alias cm="git commit"
 alias gl="git log --oneline"
+alias gd="git diff"
 
 alias emac="open -a /Applications/Emacs.app/Contents/MacOS/Emacs"
 
