@@ -54,6 +54,10 @@
 					(set-foreground-color "White")       ; 前景色
 					(set-cursor-color "Yellow")          ; カーソル色
 					(set-frame-parameter nil 'alpha 85)  ; 透過具合
+					;; (width . 100) ; ウィンドウ幅
+                    ;; (height . 35) ; ウィンドウの高さ
+                    ;; (top . 60) ; 表示位置
+                    ;; (left . 140) ; 表示位置
 					))
 
 ;; 行番号を表示
