@@ -30,6 +30,7 @@ alias gd="git diff"
 alias gb="git branch"
 
 alias emac="open -a /Applications/Emacs.app/Contents/MacOS/Emacs"
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 
 alias grep='grep --color=auto'
 
