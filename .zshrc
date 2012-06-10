@@ -1,3 +1,4 @@
+# test
 export LANG=ja_JP.UTF-8
 
 # PROMPT
@@ -9,7 +10,8 @@ export LANG=ja_JP.UTF-8
 #;;
 
 PROMPT="%%"
-RPROMPT="[%~]"
+#RPROMPT="[%~]"
+RPROMPT="[%~ ${HOST}]"
 SPROMPT="correct:%R -> %r?"
 
 # Path Setting
@@ -29,6 +31,7 @@ alias gd="git diff"
 alias gb="git branch"
 
 alias emac="open -a /Applications/Emacs.app/Contents/MacOS/Emacs"
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 
 alias grep='grep --color=auto'
 
