@@ -13,7 +13,9 @@ set vb t_vb=
 " start   : 挿入モード開始位置より手前の文字
 set backspace=indent,eol,start
 
-colorscheme desert
+"colorscheme desert
+"colorscheme peachpuff
+colorscheme default
 
 "----------------------------------------------------
 " バックアップ関係
@@ -49,12 +51,12 @@ set noincsearch
 "----------------------------------------------------
 " タイトルをウインドウ枠に表示する
 set title
-" 行番号を表示しない
-set nonumber
+" 行番号を表示する　＊しない=>nonumber
+set number
 " ルーラーを表示
 "set ruler
 " タブ文字を CTRL-I で表示し、行末に $ で表示する
-set list
+"set list
 " 入力中のコマンドをステータスに表示する
 set showcmd
 " ステータスラインを常に表示
@@ -99,7 +101,7 @@ set softtabstop=4
 " インデントの各段階に使われる空白の数
 set shiftwidth=4
 " タブを挿入するとき、代わりに空白を使わない
-set noexpandtab
+set expandtab
 
 "----------------------------------------------------
 " 国際化関係
