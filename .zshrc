@@ -17,6 +17,7 @@ SPROMPT="correct:%R -> %r?"
 # Path Setting
 path=(/bin /usr/local/bin /usr/bin)
 
+alias vi="vim"
 alias ls="ls -G"
 alias la="ls -a"
 alias ll="ls -la"
@@ -55,3 +56,7 @@ source $HOME/perl5/perlbrew/etc/bashrc
 # perlコマンドやperldocコマンドを実行したときにインストールしたディレクトリを見つけられるように環境変数をつける
 export PERL5LIB=$HOME/perl5/lib/perl5
 
+# rvmの設定
+if [[ -s $HOME/.rvm/scripts/rvm ]] then
+    source $HOME/.rvm/scripts/rvm
+fi
