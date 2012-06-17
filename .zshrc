@@ -11,7 +11,7 @@ export LANG=ja_JP.UTF-8
 
 PROMPT="%%"
 #RPROMPT="[%~]"
-RPROMPT="[%~ ${HOST}]"
+RPROMPT="[%~]"
 SPROMPT="correct:%R -> %r?"
 
 # Path Setting
