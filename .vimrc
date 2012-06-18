@@ -17,7 +17,8 @@ set backspace=indent,eol,start
 "colorscheme peachpuff
 "colorscheme default
 "colorscheme railscasts
-colorscheme molokai
+""colorscheme molokai
+colorscheme molokai_low
 
 "----------------------------------------------------
 " バックアップ関係
