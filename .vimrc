@@ -14,9 +14,10 @@ set vb t_vb=
 set backspace=indent,eol,start
 
 "colorscheme desert
-colorscheme peachpuff
+"colorscheme peachpuff
 "colorscheme default
-colorscheme railscasts
+"colorscheme railscasts
+colorscheme molokai
 
 "----------------------------------------------------
 " バックアップ関係
