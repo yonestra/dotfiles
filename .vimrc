@@ -120,15 +120,15 @@ set fileencodings+=,ucs-2le,ucs-2,utf-8
 "----------------------------------------------------
 " オートコマンド
 "----------------------------------------------------
-if has("autocmd")
-    " ファイルタイプ別インデント、プラグインを有効にする
-    filetype plugin indent on
-    " カーソル位置を記憶する
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
-endif
+"if has("autocmd")
+"    " ファイルタイプ別インデント、プラグインを有効にする
+"    filetype plugin indent on
+"    " カーソル位置を記憶する
+"    autocmd BufReadPost *
+"        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"        \   exe "normal g`\"" |
+"        \ endif
+"endif
 
 "----------------------------------------------------
 " その他
@@ -137,3 +137,24 @@ endif
 set hidden
 " 起動時のメッセージを表示しない
 set shortmess+=I
+
+"----------------------------------------------------
+" plugin
+"----------------------------------------------------
+filetype off
+
+set rtp+=~/.vim/vundle.git/
+call vundle#rc()
+
+" vim-script リポジトリ(1)
+" Bundle "rails.vim"
+"
+" github の任意のリポジトリ(2)
+" Bundle "tpope/vim-fugitive"
+"
+" github 以外のリポジトリ(3)
+" Bundle "git://git.wincent.com/command-t.git"
+
+filetype plugin indent on
+
+Bundle "thinca/vim-quickrun"
