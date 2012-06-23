@@ -156,26 +156,29 @@ set hidden
 set shortmess+=I
 
 "----------------------------------------------------
-" plugin
+" neovundle plugin
 "----------------------------------------------------
-filetype off
+filetype off 
 
-set rtp+=~/.vim/vundle.git/
-call vundle#rc()
+if has('vim_starting')
+    set runtimepath+=~/.vim/neobundle.vim
+    call neobundle#rc(expand('~/.vim/.bundle'))
+endif
 
-" vim-script リポジトリ(1)
-" Bundle "rails.vim"
-"
-" github の任意のリポジトリ(2)
-" Bundle "tpope/vim-fugitive"
-"
-" github 以外のリポジトリ(3)
-" Bundle "git://git.wincent.com/command-t.git"
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'unite.vim'
+NeoBundle 'Align'
 
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 
-Bundle 'thinca/vim-quickrun'
-Bundle 'unite.vim'
+
+"----------------------------------------------------
+" pluginごとの設定
+"----------------------------------------------------
+
 "" unite.vim
 "入力モードで開始する
 " let g:unite_enable_start_insert=1
@@ -201,3 +204,5 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+
+
