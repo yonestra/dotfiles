@@ -172,6 +172,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'unite.vim'
 NeoBundle 'Align'
+NeoBundle 'pangloss/vim-javascript'
 
 filetype plugin on
 filetype indent on
