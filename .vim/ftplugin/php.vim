@@ -6,7 +6,7 @@ let php_htmlInStrings = 1
 let php_noShortTags = 1
 let php_parent_error_close = 1
 let php_parent_error_open = 1
-"let php_folding = 1
+let php_folding = 1
 "let php_sync_method = x
 
 " for QuickFix
