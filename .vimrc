@@ -174,6 +174,9 @@ NeoBundle 'unite.vim'
 NeoBundle 'Align'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'pekepeke/titanium-vim'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'mattn/zencoding-vim'
 
 filetype plugin on
 filetype indent on
@@ -268,5 +271,4 @@ inoremap <expr><C-y> neocomplcache#close_popup()
  
 " 現在選択している候補をキャンセルし、ポップアップを閉じます
 inoremap <expr><C-e> neocomplcache#cancel_popup()
-
 
