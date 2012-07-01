@@ -173,6 +173,8 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pekepeke/titanium-vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'kana/vim-altr'
+NeoBundle 'ZenCoding.vim'
 
 filetype plugin on
 filetype indent on
