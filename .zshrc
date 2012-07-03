@@ -2,17 +2,12 @@
 export LANG=ja_JP.UTF-8
 
 # PROMPT
-#PROMPT="%/%% "
-#PROMPT2="%_%% "
-#SPROMPT="%r is correct? [n,y,a,e]: "
-#[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-#  PROMPT="${HOST%%.*} ${PROMPT}"
-#;;
-
-PROMPT="%%"
-#RPROMPT="[%~]"
-RPROMPT="[%~]"
-SPROMPT="correct:%R -> %r?"
+autoload colors
+colors
+PROMPT="%{${fg[yellow]}%}%(!.#.$) %{${reset_color}%}"
+PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
+SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
+RPROMPT="[%~]%{${reset_color}%}"
 
 # Path Setting
 path=(/bin /usr/local/bin /usr/bin)
