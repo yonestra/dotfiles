@@ -11,7 +11,7 @@ SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 RPROMPT="[%~]%{${reset_color}%}"
 
 # Path Setting
-path=(/bin /usr/local/bin /usr/bin)
+path=(/sbin /bin /usr/local/bin /usr/bin)
 
 alias vi="vim"
 alias ls="ls -G"
