@@ -10,13 +10,12 @@ PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 RPROMPT="[%~]%{${reset_color}%}"
 
-# Path Setting
-path=(/sbin /bin /usr/local/bin /usr/bin)
-
-alias vi="vim"
+alias vi ="vim"
 alias ls="ls -G"
 alias la="ls -a"
 alias ll="ls -la"
+
+alias ff="find $PWD -type f -print | xargs grep -n --color=auto"
 
 alias gs="git status"
 alias add="git add"
@@ -27,10 +26,9 @@ alias gl="git log --oneline"
 alias gd="git diff"
 alias gb="git branch"
 
-alias emac="open -a /Applications/Emacs.app/Contents/MacOS/Emacs"
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 
 alias grep='grep --color=auto'
+
 
 ## terminal configuration
 #
@@ -49,6 +47,18 @@ REPORTTIME=3
 #補完数が多い時に許可を聞く閾値$
 LISTMAX=100
 
+case "${OSTYPE}" in
+
+#Mac(Unix)
+darwin*)
+
+#-------------------------Mac------------------------------
+
+alias emac="open -a /Applications/Emacs.app/Contents/MacOS/Emacs"
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+
+alias gvi="open -a /Applications/MacVim.app/Contents/MacOS/MacVim"
+
 # http://takus.me/programming/perl/mac-perl-perlblew-cpanm-install/
 # perlbrew
 source $HOME/perl5/perlbrew/etc/bashrc
@@ -59,3 +69,20 @@ export PERL5LIB=$HOME/perl5/lib/perl5
 if [[ -s $HOME/.rvm/scripts/rvm ]] then
     source $HOME/.rvm/scripts/rvm
 fi
+
+
+alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags"
+
+# Path Setting
+path=(/Users/yonezawa/AndroidSDK/platform-tools /sbin /bin /usr/local/bin /usr/bin)
+
+    alias hello="echo Hello Mac";
+
+;;
+
+linux*)
+
+    alias hello="echo Hello Linux";
+
+;;
+esac
