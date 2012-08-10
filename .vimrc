@@ -158,7 +158,7 @@ filetype off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/neobundle.vim
-    call neobundle#rc(expand('~/.vim/.bundle'))
+    call neobundle#rc(expand('~/.vim/.bundle/automatic'))
 endif
 
 NeoBundle 'Shougo/neocomplcache'
@@ -175,7 +175,9 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'kana/vim-altr'
 NeoBundle 'ZenCoding.vim'
-NeoBundle "tyru/caw.vim"
+NeoBundle 'tyru/caw.vim'
+
+NeoBundle 'php-doc', {'type' : 'nosync', 'base' : '~/.vim/.bundle/manual'}
 
 filetype plugin on
 filetype indent on
