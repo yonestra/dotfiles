@@ -16,7 +16,7 @@ alias la="ls -a"
 alias ll="ls -la"
 alias grep="grep -n --color=auto"
 
-alias ff="find $PWD -type f -print | xargs grep -n --color=auto"
+alias ff="find ./ -type f -print | xargs grep -n --color=auto"
 
 alias gs="git status"
 alias add="git add"

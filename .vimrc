@@ -176,6 +176,8 @@ NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'kana/vim-altr'
 NeoBundle 'ZenCoding.vim'
 NeoBundle 'tyru/caw.vim'
+NeoBundle 'The-NERD-tree'
+NeoBundle 'php-doc'
 
 NeoBundle 'php-doc', {'type' : 'nosync', 'base' : '~/.vim/.bundle/manual'}
 
@@ -277,3 +279,13 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 " コメントアウトを切り替えるマッピング例
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
+
+"" The-NERD-tree
+" \nで表示・非表示
+nmap <Leader>n :NERDTreeToggle<CR>
+
+"" php-doc
+" 
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-P> :call PhpDocSingle()<CR> 
+vnoremap <C-P> :call PhpDocRange()<CR> 
