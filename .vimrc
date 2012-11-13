@@ -17,8 +17,29 @@ set backspace=indent,eol,start
 "colorscheme peachpuff
 "colorscheme default
 "colorscheme railscasts
-"colorscheme molokai
-colorscheme molokai_low
+"colorscheme molokai_low
+"colorscheme yuroyoro256
+" colorscheme molokai
+colorscheme railscasts
+
+" 行頭 → 非空白行頭 → 行末 をローテートする
+function! s:rotate_in_line()
+    let c = col('.')
+
+    let cmd = c == 1 ? '^' : '$'
+    execute "normal! ".cmd
+
+    if c == col('.')
+        if cmd == '^'
+            normal! $
+        else
+            normal! 0
+        endif
+    endif
+endfunction
+
+" tに割り当て
+nnoremap <silent>t :<C-u>call <SID>rotate_in_line()<CR>
 
 "----------------------------------------------------
 " ショートカット
@@ -31,6 +52,12 @@ nnoremap <Up>   gk
 " 逆に普通の行単位で移動したい時のために逆の map も設定しておく
 nnoremap gj j
 nnoremap gk k
+
+" 挿入モードでのカーソル移動
+" inoremap <C-j> <Down>
+" inoremap <C-k> <Up>
+" inoremap <C-h> <Left>
+" inoremap <C-l> <Right>
 
 "----------------------------------------------------
 " バックアップ関係
@@ -178,6 +205,17 @@ NeoBundle 'ZenCoding.vim'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'php-doc'
+NeoBundle 'hrsh7th/vim-unite-vcs'
+NeoBundle 'yuroyoro/yuroyoro256.vim'
+NeoBundle 'vim-scripts/AutoClose'
+
+"rails
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'vim-ruby/vim-ruby'
+
+"color
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'tomasr/molokai'
 
 NeoBundle 'php-doc', {'type' : 'nosync', 'base' : '~/.vim/.bundle/manual'}
 
@@ -219,59 +257,59 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 "" neovomplcache
 " 補完ウィンドウの設定
 set completeopt=menuone
- 
+
 " 起動時に有効化
 let g:neocomplcache_enable_at_startup = 1
- 
+
 " 大文字が入力されるまで大文字小文字の区別を無視する
 let g:neocomplcache_enable_smart_case = 1
- 
+
 " _(アンダースコア)区切りの補完を有効化
 let g:neocomplcache_enable_underbar_completion = 1
- 
+
 let g:neocomplcache_enable_camel_case_completion  =  1
- 
+
 " ポップアップメニューで表示される候補の数
 let g:neocomplcache_max_list = 20
- 
+
 " シンタックスをキャッシュするときの最小文字長
 let g:neocomplcache_min_syntax_length = 3
- 
+
 " ディクショナリ定義
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'php' : $HOME . '/.vim/dict/php.dict',
-    \ 'ctp' : $HOME . '/.vim/dict/php.dict'
-    \ }
- 
+            \ 'default' : '',
+            \ 'php' : $HOME . '/.vim/dict/php.dict',
+            \ 'ctp' : $HOME . '/.vim/dict/php.dict'
+            \ }
+
 if !exists('g:neocomplcache_keyword_patterns')
-        let g:neocomplcache_keyword_patterns = {}
+    let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
- 
+
 " スニペットを展開する。スニペットが関係しないところでは行末まで削除
 imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
- 
+
 " 前回行われた補完をキャンセルします
 inoremap <expr><C-g> neocomplcache#undo_completion()
- 
+
 " 補完候補のなかから、共通する部分を補完します
 inoremap <expr><C-l> neocomplcache#complete_common_string()
- 
+
 " 候補を確定し改行せず補完ウィンドウを閉じる
 inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
- 
+
 "tabで補完候補の選択を行う
 inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
- 
+
 " <C-h>や<BS>を押したときに確実にポップアップを削除します
 inoremap <expr><C-h> neocomplcache#smart_close_popup().”\<C-h>”
- 
+
 " 現在選択している候補を確定します
 inoremap <expr><C-y> neocomplcache#close_popup()
- 
+
 " 現在選択している候補をキャンセルし、ポップアップを閉じます
 inoremap <expr><C-e> neocomplcache#cancel_popup()
 
@@ -289,3 +327,13 @@ nmap <Leader>n :NERDTreeToggle<CR>
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
+
+" --------------------------------
+" vim-unite-vcs
+" --------------------------------
+nnoremap  [vcs] <Nop>
+nmap      fv     [vcs]
+
+nnoremap [vcs]l  :<C-u>Unite vcs/log<CR>
+nnoremap [vcs]s  :<C-u>Unite vcs/status<CR>
+nnoremap [vcs]r  :<C-u>Unite vcs/file_rec<CR>

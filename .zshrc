@@ -9,6 +9,7 @@ PROMPT="%{${fg[yellow]}%}%(!.#.$) %{${reset_color}%}"
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 RPROMPT="[%~]%{${reset_color}%}"
+REPORTTIME=3
 
 alias vi ="vim"
 alias ls="ls -G"
@@ -16,7 +17,10 @@ alias la="ls -a"
 alias ll="ls -la"
 alias grep="grep -n --color=auto"
 
-alias ff="find ./ -type f -print | xargs grep -n --color=auto"
+alias ff="find . -type f -print | xargs grep -n --color=auto"
+function rr() {
+     rsync -arvp --cvs-exclude $* ./dir2/$*
+}
 
 alias gs="git status"
 alias add="git add"
@@ -41,6 +45,9 @@ zstyle list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 autoload -U compinit && compinit -u
 #zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
 
+autoload -Uz zmv
+alias zmv='noglob zmv -W'
+
 ## 実行したプロセスの消費時間が3秒以上かかったら
 ## 自動的に消費時間の統計情報を表示する。
 REPORTTIME=3
@@ -50,40 +57,47 @@ LISTMAX=100
 
 case "${OSTYPE}" in
 
-#Mac(Unix)
-darwin*)
+    #Mac(Unix)
+    darwin*)
 
-#-------------------------Mac------------------------------
+    #-------------------------Mac------------------------------
 
-alias emac="open -a /Applications/Emacs.app/Contents/MacOS/Emacs"
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+    alias emac="open -a /Applications/Emacs.app/Contents/MacOS/Emacs"
+    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 
-alias gvi="open -a /Applications/MacVim.app/Contents/MacOS/MacVim"
+    alias gvi="open -a /Applications/MacVim.app/Contents/MacOS/MacVim"
 
-# http://takus.me/programming/perl/mac-perl-perlblew-cpanm-install/
-# perlbrew
-source $HOME/perl5/perlbrew/etc/bashrc
-# perlコマンドやperldocコマンドを実行したときにインストールしたディレクトリを見つけられるように環境変数をつける
-export PERL5LIB=$HOME/perl5/lib/perl5
+    alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 
-# rvmの設定
-if [[ -s $HOME/.rvm/scripts/rvm ]] then
-    source $HOME/.rvm/scripts/rvm
-fi
+    # http://takus.me/programming/perl/mac-perl-perlblew-cpanm-install/
+    # perlbrew
+    source $HOME/perl5/perlbrew/etc/bashrc
+    # perlコマンドやperldocコマンドを実行したときにインストールしたディレクトリを見つけられるように環境変数をつける
+    export PERL5LIB=$HOME/perl5/lib/perl5
+
+    # rvmの設定
+    if [[ -s $HOME/.rvm/scripts/rvm ]] then
+        source $HOME/.rvm/scripts/rvm
+    fi
 
 
-alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags"
+    alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags"
 
-# Path Setting
-path=(/Users/yonezawa/AndroidSDK/platform-tools /sbin /bin /usr/local/bin /usr/bin)
+    # Path Setting
+    path=(/Users/yonezawa/AndroidSDK/platform-tools /sbin /bin /usr/local/bin /usr/bin ~/bin)
+
+    export ARCHFLAGS="-arch x86_64"
+    export CC='gcc-4.2'
 
     alias hello="echo Hello Mac";
 
-;;
+    ;;
 
 linux*)
 
     alias hello="echo Hello Linux";
 
-;;
+    ;;
 esac
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
