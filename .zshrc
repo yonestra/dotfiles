@@ -84,6 +84,7 @@ case "${OSTYPE}" in
 
 
     alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags"
+    alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 
     # Path Setting
     path=(/Users/yonezawa/AndroidSDK/platform-tools /sbin /bin /usr/local/bin /usr/bin ~/bin)
