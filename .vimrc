@@ -12,6 +12,8 @@ set vb t_vb=
 " eol     : 改行
 " start   : 挿入モード開始位置より手前の文字
 set backspace=indent,eol,start
+set cursorline
+"highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 
 "colorscheme desert
 "colorscheme peachpuff

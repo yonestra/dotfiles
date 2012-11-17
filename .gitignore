@@ -2,3 +2,5 @@
 *.swp
 .netrwhist
 .DS_Store
+.vim/
+target/
