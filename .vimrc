@@ -209,7 +209,7 @@ NeoBundle 'The-NERD-tree'
 NeoBundle 'php-doc'
 NeoBundle 'hrsh7th/vim-unite-vcs'
 NeoBundle 'yuroyoro/yuroyoro256.vim'
-NeoBundle 'vim-scripts/AutoClose'
+" NeoBundle 'vim-scripts/AutoClose'
 
 "rails
 NeoBundle 'tpope/vim-rails'
