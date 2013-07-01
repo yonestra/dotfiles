@@ -1,18 +1,22 @@
 # test
 export LANG=ja_JP.UTF-8
 
+HISTSIZE=1000
+SAVEHIST=1000
+
+export HISTFILE=~/.history/history.`date +%y%m%d%H%M`
 
 # PROMPT
 autoload colors
 colors
-PROMPT="%{${fg[yellow]}%}%(!.#.$) %{${reset_color}%}"
+PROMPT="%{${fg[white]}%}%(!.#.$) %{${reset_color}%}"
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 RPROMPT="[%~]%{${reset_color}%}"
 REPORTTIME=3
 
-alias vi ="vim"
-alias ls="ls -G"
+alias vi="vim"
+alias ls="ls"
 alias la="ls -a"
 alias ll="ls -la"
 alias grep="grep -n --color=auto"
@@ -34,6 +38,8 @@ alias gb="git branch"
 
 alias grep='grep --color=auto'
 
+# sudo でPATHを引き継ぐ
+alias sudo='sudo env PATH=$PATH'
 
 ## terminal configuration
 #
@@ -100,6 +106,12 @@ linux*)
 
     alias hello="echo Hello Linux";
 
+    setopt nonomatch
+    source /usr/local/nvm/nvm.sh
+    nvm use v0.8.18
+    npm_dir=${NVM_PATH}_modules
+    export NODE_PATH=$npm_dir
+
     ;;
 esac
 
@@ -107,3 +119,5 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+
