@@ -79,9 +79,9 @@ case "${OSTYPE}" in
 
     # http://takus.me/programming/perl/mac-perl-perlblew-cpanm-install/
     # perlbrew
-    source $HOME/perl5/perlbrew/etc/bashrc
+#     source $HOME/perl5/perlbrew/etc/bashrc
     # perlコマンドやperldocコマンドを実行したときにインストールしたディレクトリを見つけられるように環境変数をつける
-    export PERL5LIB=$HOME/perl5/lib/perl5
+#    export PERL5LIB=$HOME/perl5/lib/perl5
 
     # rvmの設定
     if [[ -s $HOME/.rvm/scripts/rvm ]] then
