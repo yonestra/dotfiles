@@ -121,3 +121,12 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH="/usr/local/heroku/bin:$PATH"
 
 
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+export CC=/usr/bin/gcc
+
+#Rails ローカルproductionチェック用
+export RAILS_SERVE_STATIC_FILES=1
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export BUNDLE_JOBS=4
