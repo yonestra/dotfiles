@@ -31,8 +31,10 @@ alias add="git add"
 alias pull="git pull"
 alias push="git push"
 alias cm="git commit"
-alias gl="git log --oneline"
+#alias gl="git log --oneline"
+alias gl='git log --date=format:"%Y-%m-%d %H:%M" --format="%C(yellow)%h%C(reset) %cd %C(green)[%an]%C(reset) %s"'
 alias gd="git diff"
+alias gdr="git diff --word-diff-regex=."
 alias gb="git branch"
 
 
@@ -94,6 +96,9 @@ case "${OSTYPE}" in
 
     # Path Setting
     path=(/Users/yonezawa/AndroidSDK/platform-tools /sbin /bin /usr/local/bin /usr/bin ~/bin)
+    # arm64版Homebrew(/opt/homebrew)をIntel版(/usr/local)より優先する。
+    # 上のpath=(...)でPATHが上書きされ、~/.zprofileのbrew shellenvが設定した分が消えるため、ここで再度先頭に追加する。
+    path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
 
     export ARCHFLAGS="-arch x86_64"
     export CC='gcc-4.2'
@@ -130,3 +135,16 @@ export CC=/usr/bin/gcc
 export RAILS_SERVE_STATIC_FILES=1
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export BUNDLE_JOBS=4
+
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
+# Added by Antigravity
+export PATH="/Users/shotayonezawa/.antigravity/antigravity/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+export PATH="$HOME/.local/bin:$PATH"
