@@ -148,3 +148,8 @@ export PATH="/Users/shotayonezawa/.antigravity/antigravity/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Unity CLI
+. "/Users/shotayonezawa/.unity/env"
+export DOTNET_ROOT="$HOME/.dotnet"
+export PATH="$DOTNET_ROOT:$HOME/.dotnet/tools:$PATH"
